@@ -6,7 +6,7 @@ else
 	echo "Please switch to 'root'"
 	exit
 fi
-LOG_FILE="/dska/tmp/hi0580.log"
+LOG_FILE="/tmp/hi0580.log"
 >"${LOG_FILE}"
 exec &> >(tee "$LOG_FILE")
 set -x
