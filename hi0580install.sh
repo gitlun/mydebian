@@ -13,8 +13,8 @@ set -x
 echo -e "----------------SETBASE--------------------------\n"
 
 echo "######Reset to default######"
-mv /etc/ssh/sshd_config /tmp
-wget -O /etc/ssh/sshd_config https://raw.githubusercontent.com/gitlun/mydebian/master/sshd_config_default
+mv /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
+wget -O /etc/ssh/sshd_config https://raw.githubusercontent.com/gitlun/mydebian/master/sshd_config
 
 echo "######Update Debian######"
 wget -O /tmp/apt.source https://raw.githubusercontent.com/gitlun/mydebian/master/apt.source
