@@ -1,5 +1,5 @@
 #!/bin/bash
-# hi0580 setup on debian
+# mydebian setup
 if [ `whoami` = "root" ];then
 	echo "Start"
 else
