@@ -8,7 +8,7 @@ else
 fi
 mkdir /dska
 mkdir /dska/tmp
-LOG_FILE="/dska/tmp/hi0580.log"
+LOG_FILE="/dska/tmp/mydebian.log"
 >"${LOG_FILE}"
 exec &> >(tee "$LOG_FILE")
 set -x
@@ -16,8 +16,8 @@ echo -e "----------------SETBASE--------------------------\n"
 
 echo "######Reset to default######"
 
-mv /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
-wget -O /etc/ssh/sshd_config https://raw.githubusercontent.com/gitlun/mydebian/master/sshd_config
+#mv /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
+#wget -O /etc/ssh/sshd_config https://raw.githubusercontent.com/gitlun/mydebian/master/sshd_config
 
 echo "######Update Debian######"
 wget -O /tmp/apt.source https://raw.githubusercontent.com/gitlun/mydebian/master/apt.source
@@ -58,7 +58,7 @@ apt -y install redis postgresql
 
 echo -e "######done######\n"
 
-echo "######Install nginx docker######"
+echo "######Install docker######"
 apt -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common lsb-release
 
 curl -fsSL http://mirrors.cloud.tencent.com/docker-ce/linux/debian/gpg | sudo apt-key add -
