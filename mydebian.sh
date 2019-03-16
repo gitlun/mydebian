@@ -61,8 +61,8 @@ echo -e "######done######\n"
 echo "######Install docker######"
 apt -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common lsb-release
 
-curl -fsSL http://mirrors.cloud.tencent.com/docker-ce/linux/debian/gpg | sudo apt-key add -
-add-apt-repository "deb [arch=amd64] http://mirrors.cloud.tencent.com/docker-ce/linux/debian $(lsb_release -cs) stable"
+curl -fsSL http://mirrors.163.com/docker-ce/linux/debian/gpg | sudo apt-key add -
+add-apt-repository "deb [arch=amd64] http://mirrors.163.com/docker-ce/linux/debian $(lsb_release -cs) stable"
 
 apt update
 apt -y install docker-ce docker-ce-cli containerd.io
@@ -93,7 +93,7 @@ apt -y install firefox-esr openjdk-11-jre-headless
 echo -e "######done######\n"
 
 echo "######Install netdata######"
-apt -y install netdata --no-install-recommends
+#apt -y install netdata --no-install-recommends
 echo -e "######done######\n"
 
 echo -e "----------------CLEAN--------------------------\n"
@@ -101,6 +101,8 @@ echo "######Clean######"
 apt -y autoremove
 apt autoclean
 echo -e "######done######\n"
+
+wget -O /etc/ssh/sshd_config https://raw.githubusercontent.com/gitlun/mydebian/master/sshd_config
 
 #docker run -p 9760:9000 --name hi0580php -v /dska/www/hi0580:/var/www/html -v /dska/www/phpconf:/usr/local/etc/php -d hi0580php:1.0
 #docker run --name hi0580db -v /dska/www/mysql:/var/lib/mysql -v /dska/www/mysqlbak:/var/www/mysqlbak -e MYSQL_ROOT_PASSWORD=... -d mysql:5.7
